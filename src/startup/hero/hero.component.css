@@ -1,0 +1,12 @@
+#header {
+  width: 50vw; /* Set to half of the viewport width */
+  height: 50vh; /* Set to half of the viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #f0edee;
+  font-family: bayon;
+  font-size: 4em;
+  margin: auto; /* Center horizontally (works because of the block display) */
+}
