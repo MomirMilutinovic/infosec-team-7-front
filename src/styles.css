@@ -1,16 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "../node_modules/@coreui/icons/css/free.css";
+@import "../node_modules/@vectopus/atlas-icons/style.css";
+
 @font-face {
   font-family: 'bayon';
   src: url('./assets/fonts/bayon.ttf') format('truetype');
 }
 
 body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #0a090c;
+  background-color: #1e1e1e;
   overflow: hidden;
 }
