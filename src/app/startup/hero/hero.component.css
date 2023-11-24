@@ -1,0 +1,12 @@
+#header {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #f0edee;
+  font-family: bayon;
+  font-size: 15em;
+  margin: auto;
+}
