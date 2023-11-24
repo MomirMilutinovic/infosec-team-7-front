@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeroComponent } from '../startup/hero/hero.component';
+import { CoreModule } from './core/core.module';
+import { StartupModule } from './startup/startup.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { HeroComponent } from '../startup/hero/hero.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HeroComponent
+    StartupModule,
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
