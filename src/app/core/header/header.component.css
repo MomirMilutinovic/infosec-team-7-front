@@ -1,0 +1,19 @@
+div {
+  display: flex;
+  justify-content: left;
+  padding-left: 9em;
+  padding-top:2em;
+  min-width: 100vw;
+  min-height: 10vh;
+  position: absolute;
+  top: 0;
+}
+
+h1 {
+  font-family: bayon;
+  letter-spacing: 0.5px;
+  font-weight: regular;
+  color: #fff;
+  margin: 0;
+  font-size: 3em;
+}

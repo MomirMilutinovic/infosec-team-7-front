@@ -1,0 +1,12 @@
+#container {
+  position: absolute;
+  min-width: 90vw;
+  min-height: 99vh;
+  border: 2px solid #333;
+  margin-top: 9em;
+  margin-left: 8em;
+  margin-bottom: 2em;
+  margin-right: 30em;
+  border-radius: 10px;
+  box-shadow: 0 0px 8px #fff, 0 0 9px #fff;
+}
