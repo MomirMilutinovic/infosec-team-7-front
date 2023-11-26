@@ -3,10 +3,13 @@ import { CommonModule } from '@angular/common';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HeaderComponent } from './header/header.component';
 import { ContainerComponent } from './container/container.component';
-
+import { PageComponent } from './page/page.component';
+import { HelperMenuComponent } from './helper-menu/helper-menu.component';
 
 @NgModule({
   declarations: [
+    HelperMenuComponent,
+    PageComponent,
     NavBarComponent,
     HeaderComponent,
     ContainerComponent,
@@ -15,6 +18,8 @@ import { ContainerComponent } from './container/container.component';
     CommonModule,
   ],
   exports: [
+    HelperMenuComponent,
+    PageComponent,
     NavBarComponent,
     HeaderComponent,
     ContainerComponent,
