@@ -51,7 +51,8 @@ $lunark-front-theme: mat.define-dark-theme((
     accent: $lunark-front-accent,
     warn: $lunark-front-warn,
   ),
-  typography: mat.define-typography-config()
+  typography: mat.define-typography-config(),
+  density: 0
 ));
 
 // Include theme styles for core and each component used in your app.
@@ -59,3 +60,4 @@ $lunark-front-theme: mat.define-dark-theme((
 // that you are using.
 @include mat.all-component-themes($lunark-front-theme);
 
+@include mat.typography-hierarchy($lunark-front-theme);
