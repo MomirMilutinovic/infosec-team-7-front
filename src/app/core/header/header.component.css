@@ -1,19 +1,17 @@
 div {
   display: flex;
   justify-content: left;
-  padding-left: 9em;
-  padding-top:2em;
-  min-width: 100vw;
-  min-height: 10vh;
+  padding-left: 8em;
+  padding-top: 2em;
   position: absolute;
   top: 0;
 }
 
 h1 {
   font-family: bayon;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   font-weight: regular;
   color: #fff;
   margin: 0;
-  font-size: 3em;
+  font-size: 4em;
 }
