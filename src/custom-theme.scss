@@ -50,7 +50,8 @@ $lunark-front-theme: mat.define-dark-theme((
     primary: $lunark-front-primary,
     accent: $lunark-front-accent,
     warn: $lunark-front-warn,
-  )
+  ),
+  typography: mat.define-typography-config()
 ));
 
 // Include theme styles for core and each component used in your app.
