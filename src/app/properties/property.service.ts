@@ -13,4 +13,8 @@ export class PropertyService {
   getProperties(): Observable<Property[]> {
     return of(properties);
   }
+
+  getProperty(id: number): Observable<Property | undefined> {
+    return of(properties.at(id))
+  }
 }

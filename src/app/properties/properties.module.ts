@@ -4,14 +4,13 @@ import {PropertiesRoutingModule} from "./properties-routing.module";
 import {SharedModule} from "../shared/shared.module";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
+import { PropertyDetailComponent } from './property-detail/property-detail.component';
 
 
 @NgModule({
   declarations: [
-    PropertiesComponent
-  ],
-  exports: [
-    PropertiesComponent
+    PropertiesComponent,
+    PropertyDetailComponent
   ],
   imports: [
     SharedModule,
