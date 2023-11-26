@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { StartupModule } from './startup/startup.module';
 import { LandingModule } from './landing/landing.module';
+import { ProfileModule } from './profile/profile.module';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { LandingModule } from './landing/landing.module';
   imports: [
     LandingModule,
     CoreModule,
+    ProfileModule,
     BrowserModule,
     BrowserAnimationsModule,
     StartupModule,
