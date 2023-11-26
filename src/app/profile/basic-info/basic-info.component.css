@@ -1,0 +1,24 @@
+#container {
+  display: block;
+  height: 20em;
+  width: 50em;
+  display: flex;
+  padding-top: 1em;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.circular-image {
+  width: 200px;
+  height: 200px;
+  border: 3px solid #00B3B3;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-name {
+  color: #f0edee;
+  font-family: rubik-regular;
+  font-size: 2em;
+}
