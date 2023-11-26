@@ -7,5 +7,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  headerText: string = 'incoming reservations';
+  headerText: string = 'your profile';
 }
