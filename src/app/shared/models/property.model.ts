@@ -5,4 +5,5 @@ export default interface Property {
   photoUrls: string[];
   description: string;
   pricePerNight: number;
+  averageRating: number;
 }

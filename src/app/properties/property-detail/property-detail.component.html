@@ -1,26 +1,26 @@
-<div id="wrapper">
-  <div id="images">
-    <img
-      [src]="property?.photoUrls?.at(0) ?? placeholderImage"
-      height="400"
-      width="540"
-      alt="Photo of a property."/>
-    <div id="images-grid">
-      <img
-        *ngFor="let urlOrder of [1, 2, 3, 4]"
-        [src]="property?.photoUrls?.at(urlOrder) ?? placeholderImage"
-        height="195"
-        width="260"
-        alt="Photo of a property."/>
+<div fxLayoutGap="40px" fxLayout="column"  fxLayoutAlign="start center">
+  <mat-grid-list fxFill cols="4" rowHeight="2:1">
+    <mat-grid-tile colspan="2" rowspan="2">
+      <img [src]="property?.photoUrls?.at(0) ?? placeholderImage" alt="Photo of a property." />
+    </mat-grid-tile>
+    <mat-grid-tile *ngFor="let urlOrder of [1, 2, 3, 4]">
+      <img [src]="property?.photoUrls?.at(urlOrder) ?? placeholderImage" alt="Photo of a property." />
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <div fxFill fxLayout="row" fxLayoutAlign="space-around start">
+    <div fxLayout="column" fxLayoutAlign="start start">
+      <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="20px">
+        <h1 >{{property?.name}}</h1>
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <mat-icon>star</mat-icon><span>{{property?.averageRating?.toPrecision(2)}}</span>
+        </div>
+      </div>
+      <h3 class="primary-color">{{property?.location}}</h3>
+      <p>{{property?.description}}</p>
     </div>
-  </div>
-  <main>
-    <div id="details">
-      <h1 id="property-name">{{property?.name}}</h1>
-      <h3 id="property-location">{{property?.location}}</h3>
-      <p class="mat-body-1">{{property?.description}}</p>
-    </div>
-    <form id="book-form">
+
+    <form fxLayout="column" fxLayoutAlign="start stretch">
       <mat-form-field appearance="outline">
         <mat-label>Date range</mat-label>
         <mat-date-range-input [rangePicker]="picker">
@@ -37,10 +37,10 @@
         <mat-icon matSuffix>group</mat-icon>
       </mat-form-field>
 
-      <div id="form-submit">
+      <div fxLayout="row" fxLayoutAlign="space-between center">
         <span>Total price: ${{property?.pricePerNight}}</span>
         <button mat-raised-button color="primary">Book</button>
       </div>
     </form>
-  </main>
+  </div>
 </div>

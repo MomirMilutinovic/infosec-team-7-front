@@ -1,48 +1,13 @@
-#wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#images {
-  display: flex;
-  gap: 10px;
-}
-
-#images-grid {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-}
-
-#property-name {
-  font-family: bayon, Roboto, sans-serif;
-  font-size: 57px;
-}
-
-#property-location {
-  margin-top: 37px;
-  color: #00838f;
-  font-size: 32px;
-}
-
-main {
-  margin-top: 90px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+mat-grid-tile img {
+  height: 100%;
   width: 100%;
 }
 
-#book-form {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+h1 {
+  font-family: bayon, sans-serif;
+  font-size: 2rem;
 }
 
-#form-submit {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+h3 {
+  font-size: 1.5rem;
 }

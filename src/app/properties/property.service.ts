@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable, of} from "rxjs";
-import Property from "./property.model";
+import Property from "../shared/models/property.model";
 import properties from "./properties";
 
 @Injectable({
