@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable, of} from "rxjs";
 import Property from "./property.model";
-import properties from "./properties/properties";
+import properties from "./properties";
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,6 @@ export class PropertyService {
   }
 
   getProperty(id: number): Observable<Property | undefined> {
-    return of(properties.at(id))
+    return of(properties.find(p => p.id === id));
   }
 }

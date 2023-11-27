@@ -1,5 +1,7 @@
 <div class="container">
-  <mat-card class="item" *ngFor="let property of properties">
+  <mat-card
+    class="item"
+    *ngFor="let property of properties">
     <img
       [src]="property.photoUrl"
       alt="Image of a property." />
@@ -11,7 +13,8 @@
       <p>{{property.description}}</p>
     </mat-card-content>
     <mat-card-footer>
-      <p class="mat-headline-6">${{property.pricePerNight}} NIGHT</p>
+      <span id="price">${{property.pricePerNight}} NIGHT</span>
+      <button mat-button color="primary" routerLink="/properties/{{property.id}}">View</button>
     </mat-card-footer>
   </mat-card>
 </div>

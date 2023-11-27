@@ -1,7 +1,8 @@
-import Property from "../property.model";
+import Property from "./property.model";
 
 const properties: Property[] = [
   {
+    id: 1,
     name: 'Summer Luxury Apartment',
     location: 'Belgrade, Serbia',
     description: 'Discover unparalleled luxury where every detail defines opulence.',
@@ -9,6 +10,7 @@ const properties: Property[] = [
     pricePerNight: 100
   },
   {
+    id: 2,
     name: 'Crazy Belgrade Apartment',
     location: 'Belgrade, Serbia',
     description: 'Embrace pure opulence in every carefully curated detail.',
@@ -16,6 +18,7 @@ const properties: Property[] = [
     pricePerNight: 150
   },
   {
+    id: 3,
     name: 'Minimalist Premium',
     location: 'Zlatibor, Serbia',
     description: 'Lorem ipsum dolor sit amet.',
