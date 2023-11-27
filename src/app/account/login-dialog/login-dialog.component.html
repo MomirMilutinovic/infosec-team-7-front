@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Log in</h1>
+<div mat-dialog-content>
+  <form [formGroup]="loginForm">
+    <mat-form-field appearance="outline" color="accent">
+      <mat-label>Email</mat-label>
+      <input matInput type="text" name="email" formControlName="email" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" color="accent"> 
+      <mat-label>Password</mat-label>
+      <input matInput type="password" name="password" formControlName="password" />
+    </mat-form-field>
+  </form>
+  <p>New to lunark? <a id="sign-up">Sign up now</a>.</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-flat-button color="primary" (click)="signIn()" id="sign-in">Sign in</button>
+</div>
