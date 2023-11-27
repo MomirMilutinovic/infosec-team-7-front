@@ -1,0 +1,8 @@
+#wrapper {
+  border-radius: 10px;
+  border: 2px solid #F0EDEE;
+  box-shadow: 0px 4px 19px 9px rgba(240, 237, 238, 0.25);
+  padding: 3em;
+  max-width: 80%;
+  margin: 10px auto;
+}

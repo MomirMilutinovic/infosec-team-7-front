@@ -5,6 +5,12 @@ import {SharedModule} from "../shared/shared.module";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import { PropertyDetailComponent } from './property-detail/property-detail.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -17,6 +23,13 @@ import { PropertyDetailComponent } from './property-detail/property-detail.compo
     PropertiesRoutingModule,
     MatCardModule,
     MatButtonModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatIconModule,
+    ReactiveFormsModule,
   ]
 })
 export class PropertiesModule {

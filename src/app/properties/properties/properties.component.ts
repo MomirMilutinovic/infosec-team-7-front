@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {PropertyService} from "../property.service";
 import Property from "../property.model";
+import {environment} from "../../../env/environment";
 
 @Component({
   selector: 'app-properties',
@@ -9,6 +10,7 @@ import Property from "../property.model";
 })
 export class PropertiesComponent {
   properties: Property[] = [];
+  placeholderImage = environment.assetsDir + '/images/placeholder-image.webp';
 
   constructor(private propertyService: PropertyService) {
   }

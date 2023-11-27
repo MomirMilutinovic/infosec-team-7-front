@@ -1,7 +1,46 @@
-<img
-  [src]="property?.photoUrl"
-  alt="Photo of a property."/>
-<h1>{{property?.name}}</h1>
-<h3>{{property?.location}}</h3>
-<p>{{property?.description}}</p>
-<p>{{property?.pricePerNight}}</p>
+<div id="wrapper">
+  <div id="images">
+    <img
+      [src]="property?.photoUrls?.at(0) ?? placeholderImage"
+      height="400"
+      width="540"
+      alt="Photo of a property."/>
+    <div id="images-grid">
+      <img
+        *ngFor="let urlOrder of [1, 2, 3, 4]"
+        [src]="property?.photoUrls?.at(urlOrder) ?? placeholderImage"
+        height="195"
+        width="260"
+        alt="Photo of a property."/>
+    </div>
+  </div>
+  <main>
+    <div id="details">
+      <h1 id="property-name">{{property?.name}}</h1>
+      <h3 id="property-location">{{property?.location}}</h3>
+      <p class="mat-body-1">{{property?.description}}</p>
+    </div>
+    <form id="book-form">
+      <mat-form-field appearance="outline">
+        <mat-label>Date range</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Start date">
+          <input matEndDate placeholder="End date">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Number of guests</mat-label>
+        <input matInput/>
+        <mat-icon matSuffix>group</mat-icon>
+      </mat-form-field>
+
+      <div id="form-submit">
+        <span>Total price: ${{property?.pricePerNight}}</span>
+        <button mat-raised-button color="primary">Book</button>
+      </div>
+    </form>
+  </main>
+</div>

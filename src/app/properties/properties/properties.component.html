@@ -3,7 +3,7 @@
     class="item"
     *ngFor="let property of properties">
     <img
-      [src]="property.photoUrl"
+      [src]="property.photoUrls.at(0) ?? placeholderImage"
       alt="Image of a property." />
     <mat-card-header>
       <mat-card-title>{{property.name}}</mat-card-title>

@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import Property from "../property.model";
 import {PropertyService} from "../property.service";
 import {ActivatedRoute} from "@angular/router";
+import {environment} from "../../../env/environment";
 
 @Component({
   selector: 'app-property-detail',
@@ -10,6 +11,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class PropertyDetailComponent {
   property?: Property;
+  placeholderImage = environment.assetsDir + '/images/placeholder-image.webp';
 
   constructor(
     private propertyService: PropertyService,
@@ -26,4 +28,6 @@ export class PropertyDetailComponent {
     this.propertyService.getProperty(id)
       .subscribe(property => this.property = property);
   }
+
+  protected readonly Array = Array;
 }
