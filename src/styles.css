@@ -15,6 +15,7 @@
 
 body {
   background-color: #1e1e1e;
+  overflow: hidden;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
@@ -22,11 +23,6 @@ body {
 html, body {
   height: 100%;
 }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 mat-dialog-container {
   box-shadow: 0px 4px 19px 9px rgba(240, 237, 238, 0.25);
