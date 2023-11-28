@@ -1,20 +1,23 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import {PropertiesComponent} from "./properties/properties.component";
 import {PropertiesRoutingModule} from "./properties-routing.module";
 import {SharedModule} from "../shared/shared.module";
-
+import { PropertyDetailComponent } from './property-detail/property-detail.component';
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {MaterialModule} from "../../infrastructure/material/material.module";
 
 
 @NgModule({
   declarations: [
-    PropertiesComponent
-  ],
-  exports: [
-    PropertiesComponent
+    PropertiesComponent,
+    PropertyDetailComponent
   ],
   imports: [
     SharedModule,
     PropertiesRoutingModule,
+    FlexLayoutModule,
+    MaterialModule,
   ]
 })
-export class PropertiesModule { }
+export class PropertiesModule {
+}
