@@ -12,6 +12,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatCardModule} from "@angular/material/card";
 import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 @NgModule({
   declarations: [],
@@ -30,7 +31,8 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     MatIconModule,
     ReactiveFormsModule,
     MatGridListModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatAutocompleteModule,
   ],
   exports: [
     MatDialogModule,
@@ -48,7 +50,8 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     MatIconModule,
     ReactiveFormsModule,
     MatGridListModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatAutocompleteModule
   ]
 })
 

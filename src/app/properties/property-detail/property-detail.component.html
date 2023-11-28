@@ -16,7 +16,7 @@
           <mat-icon>star</mat-icon><span>{{property?.averageRating?.toPrecision(2)}}</span>
         </div>
       </div>
-      <h3 class="primary-color">{{property?.location}}</h3>
+      <h3 class="primary-color">{{property?.location?.city}}, {{property?.location?.country}}</h3>
       <p>{{property?.description}}</p>
     </div>
 
