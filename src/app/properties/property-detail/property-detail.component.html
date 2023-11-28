@@ -1,5 +1,5 @@
 <div fxLayoutGap="40px" fxLayout="column"  fxLayoutAlign="start center">
-  <mat-grid-list fxFill cols="4" rowHeight="2:1">
+  <mat-grid-list fxFill cols="4" rowHeight="150px">
     <mat-grid-tile colspan="2" rowspan="2">
       <img [src]="property?.photoUrls?.at(0) ?? placeholderImage" alt="Photo of a property." />
     </mat-grid-tile>
@@ -16,7 +16,7 @@
           <mat-icon>star</mat-icon><span>{{property?.averageRating?.toPrecision(2)}}</span>
         </div>
       </div>
-      <h3 class="primary-color">{{property?.location}}</h3>
+      <h3 class="primary-color">{{property?.location?.city}}, {{property?.location?.country}}</h3>
       <p>{{property?.description}}</p>
     </div>
 
