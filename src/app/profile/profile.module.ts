@@ -35,7 +35,7 @@ const routes: Routes = [
     MatFormFieldModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
     MaterialModule
   ],
   exports: [

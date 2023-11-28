@@ -5,8 +5,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { LandingModule } from './landing/landing.module';
 import { ProfileModule } from './profile/profile.module';
-import {PropertiesModule} from "./properties/properties.module";
-import {AppRoutingModule} from "./app-routing.module";
+import { PropertiesModule } from "./properties/properties.module";
+import { AppRoutingModule } from "./app-routing.module";
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import {AppRoutingModule} from "./app-routing.module";
     CoreModule,
     PropertiesModule,
     AppRoutingModule,
-    FlexLayoutModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
