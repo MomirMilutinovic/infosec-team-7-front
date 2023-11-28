@@ -6,6 +6,7 @@ import { BasicInfoComponent } from './basic-info/basic-info.component';
 import { InfoFormComponent } from './info-form/info-form.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ManagementButtonsComponent } from './management-buttons/management-buttons.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -25,7 +26,7 @@ const routes: Routes = [
     InfoFormComponent,
     EditProfileComponent,
     ChangePasswordComponent,
-
+    ManagementButtonsComponent,
   ],
   imports: [
     CommonModule,
@@ -44,7 +45,8 @@ const routes: Routes = [
     InfoFormComponent,
     EditProfileComponent,
     ChangePasswordComponent,
-    RouterModule
+    RouterModule,
+    ManagementButtonsComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
