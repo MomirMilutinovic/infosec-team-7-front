@@ -1,6 +1,5 @@
-<div class="container">
+<div gdColumns="1fr 1fr 1fr" gdGap="10px" gdAuto="row">
   <mat-card
-    class="item"
     *ngFor="let property of properties">
     <img
       [src]="property.photoUrls.at(0) ?? placeholderImage"

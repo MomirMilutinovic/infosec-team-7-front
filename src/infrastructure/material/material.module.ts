@@ -11,6 +11,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatCardModule} from "@angular/material/card";
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 @NgModule({
   declarations: [],
@@ -29,6 +30,7 @@ import {MatCardModule} from "@angular/material/card";
     MatIconModule,
     ReactiveFormsModule,
     MatGridListModule,
+    MatSidenavModule
   ],
   exports: [
     MatDialogModule,
@@ -46,6 +48,7 @@ import {MatCardModule} from "@angular/material/card";
     MatIconModule,
     ReactiveFormsModule,
     MatGridListModule,
+    MatSidenavModule
   ]
 })
 

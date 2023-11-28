@@ -5,18 +5,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import {PropertiesModule} from "./properties/properties.module";
 import {AppRoutingModule} from "./app-routing.module";
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        CoreModule,
-        PropertiesModule,
-        AppRoutingModule,
-    ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    CoreModule,
+    PropertiesModule,
+    AppRoutingModule,
+    FlexLayoutModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
