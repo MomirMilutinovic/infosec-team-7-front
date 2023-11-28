@@ -1,7 +1,7 @@
 .header-text {
   position: fixed;
   margin-right: 50px;
-  margin-top: 20px;
+  margin-top: 1em;
   right: 0;
   top: 0;
 }
@@ -9,7 +9,7 @@
 .main-text {
   text-align: center;
   position: absolute;
-  top: 50%;
+  top: 58%;
   left: 50%;
   transform: translate(-50%, -38%);
 }
@@ -17,7 +17,7 @@
 p {
   font-family: bayon;
   color: #f0edee;
-  font-size: 4.5em;
+  font-size: 5em;
 }
 
 p span {
