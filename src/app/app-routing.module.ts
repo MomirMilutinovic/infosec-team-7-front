@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'home', component: LandingComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'properties', loadChildren: () => import('./properties/properties.module').then(m => m.PropertiesModule) },
+  { path: 'profile', component: ProfileComponent}
 ];
 
 @NgModule({

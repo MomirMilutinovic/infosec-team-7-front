@@ -1,4 +1,5 @@
 <div class="icon-bar">
+
   <div *ngIf="role == 'unregistered'">
     <a [ngClass]="{'active': activeLink == 'home' }" (click)="onHomeClick()"><i class="cil-home"></i></a>
     <a [ngClass]="{'active': activeLink == 'search' }" href="#"><i class="cil-search"></i></a>
@@ -35,7 +36,6 @@
     <a [ngClass]="{'active': activeLink == 'list-properties' }" href="#"><i class="cil-list-filter"></i></a>
     <a [ngClass]="{'active': activeLink == 'accounts' }" href="#"><i class="cil-globe-alt"></i></a>
     <a [ngClass]="{'active': activeLink == 'profile' }" (click)="onAccountClick()"><i class="at-account"></i></a>
-  </div>
 
   <a [ngClass]="{'active': activeLink == 'logout' }" class="logout-link" (click)="onLogoutClick()"><i class="cil-account-logout"></i></a>
 </div>

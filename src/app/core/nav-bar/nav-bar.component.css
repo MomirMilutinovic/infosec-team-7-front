@@ -1,11 +1,11 @@
 .icon-bar {
   z-index: 2;
-  min-width: 30px;
+  width: 65px;
   min-height: 100vh;
   background-color: #0A090C;
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: flex-start;
   position: fixed;
   top: 0;
   left: 0;
