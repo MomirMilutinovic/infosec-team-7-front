@@ -1,0 +1,8 @@
+button {
+    width: 12%;
+}
+
+h1[mat-dialog-title] {
+    text-align: left;
+    font-size: var(--mdc-dialog-subhead-size, 1rem);
+}
