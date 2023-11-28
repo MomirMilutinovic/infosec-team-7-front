@@ -36,6 +36,7 @@
     <a [ngClass]="{'active': activeLink == 'list-properties' }" href="#"><i class="cil-list-filter"></i></a>
     <a [ngClass]="{'active': activeLink == 'accounts' }" href="#"><i class="cil-globe-alt"></i></a>
     <a [ngClass]="{'active': activeLink == 'profile' }" (click)="onAccountClick()"><i class="at-account"></i></a>
+  </div>
 
   <a [ngClass]="{'active': activeLink == 'logout' }" class="logout-link" (click)="onLogoutClick()"><i class="cil-account-logout"></i></a>
 </div>
