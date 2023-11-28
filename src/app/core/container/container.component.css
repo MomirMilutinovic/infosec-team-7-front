@@ -3,11 +3,22 @@
   position: relative;
   min-width: 93vw;
   min-height: 82vh;
+  max-width: 90%;
   border: 2px solid #fff;
-  margin-top: 10em;
+  margin-top: inherit;
   margin-left: 6em;
   margin-right: 4em;
   margin-bottom: 1em;
   box-shadow: 0 0px 20px #fff, 0 0 9px #fff;
   border-radius: 15px;
+  flex-wrap: wrap;
+  flex-direction: inherit;
+  gap: inherit;
+}
+
+#padder {
+  padding: 2em;
+  display: flex;
+  flex-direction: inherit;
+  gap: inherit;
 }

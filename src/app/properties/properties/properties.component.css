@@ -22,3 +22,8 @@ mat-card-footer {
   font-size: 1.1rem;
   align-self: center;
 }
+
+app-container {
+  margin-top: 2em;
+  padding: 2em;
+}

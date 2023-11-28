@@ -1,4 +1,4 @@
-<div fxLayoutGap="40px" fxLayout="column"  fxLayoutAlign="start center">
+<app-container>
   <mat-grid-list fxFill cols="4" rowHeight="2:1">
     <mat-grid-tile colspan="2" rowspan="2">
       <img [src]="property?.photoUrls?.at(0) ?? placeholderImage" alt="Photo of a property." />
@@ -43,4 +43,4 @@
       </div>
     </form>
   </div>
-</div>
+</app-container>

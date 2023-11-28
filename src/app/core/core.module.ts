@@ -7,6 +7,7 @@ import { PageComponent } from './page/page.component';
 import { HelperMenuComponent } from './helper-menu/helper-menu.component';
 import { AccountModule } from '../account/account.module';
 import { MaterialModule } from '../../infrastructure/material/material.module';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { MaterialModule } from '../../infrastructure/material/material.module';
   imports: [
     CommonModule,
     AccountModule,
-    MaterialModule
+    MaterialModule,
+    RouterLink,
+    RouterLinkActive
   ],
   exports: [
     HelperMenuComponent,
