@@ -1,6 +1,20 @@
-<app-header>
-</app-header>
+<app-header></app-header>
 <app-container>
-  <app-helper-menu></app-helper-menu>
-  <app-edit-profile></app-edit-profile>
+  <app-helper-menu>
+    <ul>
+      <li><a (click)="selectMenuItem('editProfile')" [class.active]="selectedMenuItem === 'editProfile'"
+          ><span>&#x2022; </span>EDIT PROFILE</a></li>
+      <li><a (click)="selectMenuItem('changePassword')" [class.active]="selectedMenuItem === 'changePassword'"
+          ><span>&#x2022; </span>CHANGE PASSWORD</a></li>
+    </ul>
+  </app-helper-menu>
+
+  <div *ngIf="selectedMenuItem === 'editProfile'">
+    <app-edit-profile></app-edit-profile>
+  </div>
+
+  <div *ngIf="selectedMenuItem === 'changePassword'">
+    <app-change-password></app-change-password>
+  </div>
 </app-container>
+
