@@ -1,8 +1,9 @@
 <app-search></app-search>
-<div class="grid" gdColumns="1fr 1fr 1fr" gdGap="10px" gdAuto="row">
+<div class="grid" gdColumns="1fr 1fr 1fr" gdGap="10px">
   <mat-card
     *ngFor="let property of properties">
     <img
+      mat-card-image
       [src]="property.photoUrls.at(0) ?? placeholderImage"
       alt="Image of a property." />
     <mat-card-header>

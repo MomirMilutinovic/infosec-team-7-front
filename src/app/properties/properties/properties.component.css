@@ -9,13 +9,12 @@ mat-card-header {
 
 mat-card-content{
   flex-grow: 1;
-  overflow: auto;
 }
 
 mat-card-footer {
   display: flex;
   justify-content: space-between;
-  margin: 10em 1em 1em;
+  margin: 2em 1em 1em;
 }
 
 #price {
@@ -25,4 +24,10 @@ mat-card-footer {
 
 .grid {
   margin-top: 1.5em;
+}
+
+mat-card img{
+  object-fit: cover; /*this makes the image in src fit to the size specified below*/
+  width: 100%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+  height: 200px;
 }
