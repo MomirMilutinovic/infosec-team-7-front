@@ -22,3 +22,7 @@ mat-card-footer {
   font-size: 1.1rem;
   align-self: center;
 }
+
+.grid {
+  margin-top: 1.5em;
+}
