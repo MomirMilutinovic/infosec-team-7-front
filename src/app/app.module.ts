@@ -7,7 +7,7 @@ import { LandingModule } from './landing/landing.module';
 import { ProfileModule } from './profile/profile.module';
 import {PropertiesModule} from "./properties/properties.module";
 import {AppRoutingModule} from "./app-routing.module";
-import {FlexLayoutModule} from "@angular/flex-layout";
+
 
 @NgModule({
   declarations: [

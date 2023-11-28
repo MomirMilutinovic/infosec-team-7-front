@@ -1,12 +1,14 @@
 #container {
   display: block;
-  height: 22em;
+  height: 23em;
   width: 50em;
   display: flex;
   padding-top: 1em;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-left: 2em;
+  padding-top: 2em;
 }
 
 .circular-image {
@@ -21,7 +23,7 @@
   padding-top: 1em;
   color: #f0edee;
   font-family: rubik-regular;
-  font-size: 2.5em;
+  font-size: 3em;
   padding-bottom: 1em;
 }
 

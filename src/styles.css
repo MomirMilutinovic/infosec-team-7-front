@@ -11,20 +11,25 @@
   src: url('./assets/fonts/rubik/Rubik-Regular.ttf') format('truetype');
 }
 
-body {
-  background-color: #1e1e1e;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-}
 
+@font-face {
+  font-family: 'rubik-bold';
+  src: url('./assets/fonts/rubik/Rubik-SemiBold.ttf') format('truetype');
+}
 html, body {
   height: 100%;
   width: 100%;
 }
 
+body {
+  background-color: #1e1e1e;
+  overflow: hidden;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
 .backgroundImage {
-  background-image: url("../src/assets/earth.jpg");
+  background-image: url("../src/assets/earth3.jpg");
   background-repeat: no-repeat;
   background-position: left top;
   background-size: cover;
@@ -35,16 +40,58 @@ html, body {
   --mdc-dialog-subhead-color: #f0edee;
 }
 
-body {
-  background-color: #1e1e1e;
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+mat-dialog-container {
+    box-shadow: 0px 4px 19px 9px rgba(240, 237, 238, 0.25);
+    border: 1px #F0EDEE solid;
+    border-radius: 10px;
+    padding: 3px;
 }
 
-html, body {
+
+app-helper-menu #container {
+  padding:2em;
   height: 100%;
+  width: 30em;
 }
 
+app-helper-menu ul {
+  list-style-type: none;
+  padding: 1em;
+}
+
+app-helper-menu li {
+  display: block;
+  line-height: 3em;
+}
+
+app-helper-menu i {
+  display: block;
+  color: #f0edee;
+}
+
+app-helper-menu a {
+  font-family: bayon;
+  font-size: 2.5em;
+  color: #f0edee;
+  text-decoration: none;
+}
+
+app-helper-menu a:hover {
+  cursor: pointer;
+}
+
+app-helper-menu a.active {
+  color: #00B3B3;
+}
+
+app-helper-menu a.active span {
+  visibility: visible;
+}
+
+app-helper-menu span {
+  visibility: hidden;
+  
 mat-dialog-container {
 
   box-shadow: 0px 4px 19px 9px rgba(240, 237, 238, 0.25);

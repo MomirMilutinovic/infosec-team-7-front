@@ -7,5 +7,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
+  selectedMenuItem: string | null = 'editProfile';
 
-}
+  selectMenuItem(item: string): void {
+    this.selectedMenuItem = item;
+  }}

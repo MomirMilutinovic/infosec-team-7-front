@@ -89,6 +89,5 @@ $lunark-front-theme: map.set($lunark-front-theme, "color", $color);
 mat-form-field {
   --mdc-outlined-text-field-outline-color: #f0edee;
   --mdc-outlined-text-field-label-text-color: #f0edee;
-} 
 
 @include mat.radio-typography($lunark-front-theme-bigger-text);
