@@ -18,3 +18,7 @@ app-container {
   flex-direction: column;
   gap:40px;
 }
+
+p {
+  max-width: 80%;
+}

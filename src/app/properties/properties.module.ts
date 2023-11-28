@@ -6,19 +6,26 @@ import { PropertyDetailComponent } from './property-detail/property-detail.compo
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MaterialModule} from "../../infrastructure/material/material.module";
 import { CoreModule } from '../core/core.module';
+import { SearchComponent } from './search/search.component';
+import {AsyncPipe} from "@angular/common";
 
 
 @NgModule({
   declarations: [
     PropertiesComponent,
-    PropertyDetailComponent
+    PropertyDetailComponent,
+    SearchComponent
+  ],
+  exports: [
+    SearchComponent
   ],
   imports: [
     SharedModule,
     PropertiesRoutingModule,
     FlexLayoutModule,
     MaterialModule,
-    CoreModule
+    CoreModule,
+    AsyncPipe
   ]
 })
 export class PropertiesModule {
