@@ -21,7 +21,19 @@
   text-decoration: none;
 }
 
+.icon-bar a {
+  color: #f0edee;
+}
+
+.active {
+  color: red;
+}
+
 .icon-bar a:hover {
+  color: #07393c;
+}
+
+.icon-bar a.active {
   color: #00B3B3;
 }
 
