@@ -1,3 +1,4 @@
+import { throwDialogContentAlreadyAttachedError } from '@angular/cdk/dialog';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -30,6 +31,10 @@ export class NavBarComponent {
 
 
   onLogoutClick() {
+    this.openLoginDialog();
+  }
+
+  openLoginDialog() {
     // Open login dialog
     const dialogRef = this.dialog.open(LoginDialog,{
       width: '40%'

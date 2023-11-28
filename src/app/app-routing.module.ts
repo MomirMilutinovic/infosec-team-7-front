@@ -4,7 +4,7 @@ import { LandingComponent } from './landing/landing/landing.component';
 import { ProfileComponent } from './profile/profile/profile.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'properties', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: LandingComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'properties', loadChildren: () => import('./properties/properties.module').then(m => m.PropertiesModule) },

@@ -5,7 +5,7 @@
     <a [ngClass]="{'active': activeLink == 'search' }" href="#"><i class="cil-search"></i></a>
     <a [ngClass]="{'active': activeLink == 'notifications' }" href="#"><i class="cil-bell"></i></a>
     <a [ngClass]="{'active': activeLink == 'favorites' }" href="#"><i class="cil-heart"></i></a>
-    <a [ngClass]="{'active': activeLink == 'profile' }" (click)="onAccountClick()"><i class="at-account"></i></a>
+    <a href="#" (click)="$event.preventDefault();openLoginDialog()"><i class="at-account"></i></a>
   </div>
 
   <div *ngIf="role == 'guest'">
