@@ -1,8 +1,8 @@
 div {
   display: flex;
   justify-content: left;
-  padding-left: 8em;
-  padding-top: 2em;
+  padding-left: 9em;
+  padding-top: 5em;
   position: absolute;
   top: 0;
 }
