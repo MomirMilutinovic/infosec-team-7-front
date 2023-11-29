@@ -5,6 +5,7 @@ import {PropertyDetailComponent} from "./property-detail/property-detail.compone
 
 const routes: Routes = [
   { path: 'properties', component: PropertiesComponent },
+  { path: 'search', component: PropertiesComponent },
   { path: 'properties/:id', component: PropertyDetailComponent },
 ];
 

@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from "@angular/router";
-import { LandingComponent } from './landing/landing/landing.component';
-import { ProfileComponent } from './profile/profile/profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: LandingComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'home', loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule) },
+  { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
   { path: 'properties', loadChildren: () => import('./properties/properties.module').then(m => m.PropertiesModule) },
-  { path: 'profile', component: ProfileComponent}
+  { path: 'search', loadChildren: () => import('./properties/properties.module').then(m => m.PropertiesModule) },
 ];
 
 @NgModule({

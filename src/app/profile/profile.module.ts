@@ -12,12 +12,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../../infrastructure/material/material.module';
-
-const routes: Routes = [
-  { path: '', component: ProfileComponent },
-];
+import { ProfileRoutingModule } from './profile-routing.module';
 
 @NgModule({
   declarations: [
@@ -36,8 +32,8 @@ const routes: Routes = [
     MatFormFieldModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    RouterModule.forChild(routes),
-    MaterialModule
+    MaterialModule,
+    ProfileRoutingModule,
   ],
   exports: [
     ProfileComponent,
@@ -45,7 +41,6 @@ const routes: Routes = [
     InfoFormComponent,
     EditProfileComponent,
     ChangePasswordComponent,
-    RouterModule,
     ManagementButtonsComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

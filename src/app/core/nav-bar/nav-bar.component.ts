@@ -1,4 +1,3 @@
-import { throwDialogContentAlreadyAttachedError } from '@angular/cdk/dialog';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -15,23 +14,12 @@ export class NavBarComponent {
   public role: String = "unregistered";
   public activeLink: String = "home";
 
-  constructor (public dialog: MatDialog, private router: Router) {
+  constructor (public dialog: MatDialog, public router: Router) {
 
   }
-
-  onAccountClick() {
-    this.activeLink = 'profile';
-    this.router.navigate(['/profile']);
-  }
-
-  onHomeClick() {
-    this.activeLink = 'home';
-    this.router.navigate(['/home']);
-  }
-
 
   onLogoutClick() {
-    this.openLoginDialog();
+    this.role = "unregistered";
   }
 
   openLoginDialog() {

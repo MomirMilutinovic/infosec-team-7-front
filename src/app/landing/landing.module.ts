@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CoreModule } from '../core/core.module';
 import { HeroComponent } from './hero/hero.component';
 import { LandingComponent } from './landing/landing.component';
+import { LandingRoutingModule } from './landing-routing.module';
 
 @NgModule({
   declarations: [
@@ -11,6 +11,7 @@ import { LandingComponent } from './landing/landing.component';
   ],
   imports: [
     CommonModule,
+    LandingRoutingModule
   ],
   exports: [
     HeroComponent,
