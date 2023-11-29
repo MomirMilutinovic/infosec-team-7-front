@@ -22,6 +22,12 @@ mat-card-footer {
   align-self: center;
 }
 
+app-container {
+  margin-top: 2em;
+  padding: 2em;
+  flex-direction: column;
+}
+
 .grid {
   margin-top: 1.5em;
 }

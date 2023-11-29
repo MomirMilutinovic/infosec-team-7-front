@@ -1,0 +1,61 @@
+#container {
+  display: block;
+  height: 23em;
+  width: 50em;
+  display: flex;
+  padding-top: 1em;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 2em;
+  padding-top: 2em;
+}
+
+.circular-image {
+  width: 210px;
+  height: 210px;
+  border: 3px solid #00B3B3;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-name {
+  padding-top: 1em;
+  color: #f0edee;
+  font-family: rubik-regular;
+  font-size: 3em;
+  padding-bottom: 1em;
+}
+
+.upload{
+  position: relative;
+  margin: auto;
+}
+
+.upload .round{
+  position: absolute;
+  right: 0;
+  top: 11em;
+  background: #0A090C;
+  width: 3.5em;
+  height: 3.5em;
+  line-height: 5em;
+  font-size: 1em;
+  text-align: center;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.upload .round input[type = "file"]{
+  position: absolute;
+  transform: scale(2);
+  opacity: 0;
+}
+
+input[type=file]::-webkit-file-upload-button{
+    cursor: pointer;
+}
+
+i {
+  font-size: 2em;
+}
