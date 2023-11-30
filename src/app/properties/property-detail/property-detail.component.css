@@ -1,0 +1,52 @@
+mat-grid-list {
+  margin-bottom: 4em;
+}
+
+.detail-text {
+  margin-bottom: 3em;
+  padding: 0 3em;
+}
+
+mat-grid-tile img {
+  height: 100%;
+  width: 100%;
+}
+
+h1 {
+  font-family: bayon, sans-serif;
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #00838f;
+}
+
+app-container {
+  margin-top: 2em;
+  padding: 2em;
+  flex-direction: column;
+  gap:40px;
+}
+
+p {
+  max-width: 80%;
+}
+
+/* TODO: use the container component */
+.detail-container {
+  margin: 2em auto;
+  display: flex;
+  position: relative;
+  min-height: 85vh;
+  max-width: 80%;
+  border: 2px solid #fff;
+  box-shadow: 0 0px 20px #fff, 0 0 9px #fff;
+  border-radius: 15px;
+  flex-direction: column;
+  padding: 3em;
+}
+
+.rating {
+  font-size: 1.5rem;
+}

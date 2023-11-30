@@ -1,0 +1,32 @@
+#container {
+  height: 18em;
+  width: 50em;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0em 3em;
+  padding: 0em 1em;
+}
+
+.grid-container > :nth-child(5) {
+  grid-column: span 2;
+}
+
+.grid-item {
+  text-align: center;
+}
+
+.medium-field {
+  width: 100%;
+}
+
+.big-field {
+  width: 100%;
+}
+
+.datepicker-icon {
+  color: #00B3B3;
+}
