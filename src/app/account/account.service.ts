@@ -1,83 +1,137 @@
 import { Injectable } from '@angular/core';
 import { Account } from './model/account.model';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {BehaviorSubject, Observable, tap} from "rxjs";
+import {AuthResponse} from "./model/auth-resposne.model";
+import {JwtHelperService} from "@auth0/angular-jwt";
+import { environment } from '../../env/environment';
+import { ApiPaths } from '../shared/api/api-paths.enum';
+import PasswordUpdate from "../shared/models/password-update.model";
+import {Property} from "../shared/models/property.model";
+import { NotificationService } from '../notifications/notification.service';
+import NotificationType from "../shared/models/notification-type.enum";
 
-const ACCOUNTS: Account[] = [
-  {
-    "id": 1,
-    "email": "admin@example.com",
-    "password": "pass",
-    "name": "Neko",
-    "surname": "Nekic",
-    "address": "Negde 45, Novi Sad",
-    "phoneNumber": "061234567",
-    "role": "admin",
-    "notificationsEnabled": true,
-    "verified": true,
-    "blocked": false
-  },
-  {
-    "id": 2,
-    "email": "host@example.com",
-    "password": "pass",
-    "name": "Mirna",
-    "surname": "Studsluzbic",
-    "address": "Fruskogorska 1, Novi Sad",
-    "phoneNumber": "021555555",
-    "role": "host",
-    "notificationsEnabled": true,
-    "verified": true,
-    "blocked": false
-  },
-  {
-    "id": 3,
-    "email": "guest@example.com",
-    "password": "pass",
-    "name": "Branko",
-    "surname": "Kvalitetic",
-    "address": "Trg Dositeja Obradovica 6, Novi Sad",
-    "phoneNumber": "021555555",
-    "role": "guest",
-    "notificationsEnabled": true,
-    "verified": true,
-    "blocked": false
-  }
-];
-
+const notLoggedInRole = "unregistered";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-  private accountList: Account[] = [];
+  private headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    skip: 'true',
+  });
 
-  constructor() {
-    for (let accountObj of ACCOUNTS) {
-      const account: Account = {
-        id: accountObj.id,
-        email: accountObj.email,
-        password: accountObj.password,
-        name: accountObj.name,
-        surname: accountObj.surname,
-        address: accountObj.address,
-        phoneNumber: accountObj.phoneNumber,
-        role: accountObj.role,
-        notificationsEnabled: accountObj.notificationsEnabled,
-        verified: accountObj.verified,
-        blocked: accountObj.blocked,
-      };
-      this.accountList.push(account);
+
+  user$ = new BehaviorSubject(notLoggedInRole);
+  userState = this.user$.asObservable();
+
+  constructor(private http: HttpClient, private notificationService: NotificationService) {
+    this.user$.next(this.getRole());
+  }
+
+  login(auth: any): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${environment.apiHost}/${ApiPaths.LogIn}`, auth, {
+      headers: this.headers,
+    }).pipe(
+      tap((response: AuthResponse) => {
+        localStorage.setItem(environment.userLocalStorageKey, response.accessToken);
+        this.setUser();
+        this.notificationService.initializeWebSocketConnection();
+      })
+    );
+  }
+
+  logout(): Observable<string> {
+    return this.http.get(`${environment.apiHost}/${ApiPaths.LogOut}`, {
+      responseType: 'text',
+    }).pipe(
+      tap(() => {
+        this.notificationService.closeSocket();
+      })
+    );
+  }
+
+  getRole(): any {
+    if (this.isLoggedIn()) {
+      const accessToken: any = localStorage.getItem(environment.userLocalStorageKey);
+      const helper = new JwtHelperService();
+      return helper.decodeToken(accessToken).role[0].authority;
     }
+    return notLoggedInRole;
   }
 
-  getAll() : Account[] {
-    return this.accountList;
+  getAccountId(): number | null {
+    if (this.isLoggedIn()) {
+      const accessToken: any = localStorage.getItem(environment.userLocalStorageKey);
+      const helper = new JwtHelperService();
+      return helper.decodeToken(accessToken).profileId;
+    }
+    return null;
   }
 
-  add(account: Account) : void {
-    this.accountList.push(account);
+  isLoggedIn(): boolean {
+    const accessToken: any = localStorage.getItem(environment.userLocalStorageKey);
+    if(accessToken == null || this.isTokenExpired(accessToken)) {
+      localStorage.removeItem(environment.userLocalStorageKey);
+      this.user$.next(notLoggedInRole);
+      return false;
+    }
+    return true;
   }
-  
-  getUser(email: String, password: String): Account|null {
-    return this.accountList.find((account) => account.email == email && account.password == password) || null;
+  isTokenExpired(accessToken: any): boolean {
+    const helper = new JwtHelperService();
+    return helper.decodeToken(accessToken).exp < Date.now() / 1000;
+  }
+
+  setUser(): void {
+    this.user$.next(this.getRole());
+  }
+
+  signUp(account: Account): Observable<Account> {
+    return this.http.post<Account>(`${environment.apiHost}/${ApiPaths.Profile}`, account, {
+      headers: this.headers,
+    });
+  }
+
+  verify(verificationLinkId: number) {
+    return this.http.post(`${environment.apiHost}/${ApiPaths.Verification}/${verificationLinkId}`, {
+      headers: this.headers,
+    }, {responseType: 'text'});
+  }
+
+  updatePassword(passwordData: PasswordUpdate): Observable<any> {
+    return this.http.put(`${environment.apiHost}/${ApiPaths.Profile}/update-password`, passwordData);
+  }
+
+  getFavoriteProperties(): Observable<Property[]> {
+    return this.http.get<Property[]>(`${environment.apiHost}/${ApiPaths.Profile}/favorites`);
+  }
+
+  addFavoriteProperty(propertyId: number) {
+    return this.http.post(`${environment.apiHost}/${ApiPaths.Profile}/favorites/${propertyId}`, null);
+  }
+
+  deleteFavoriteProperty(propertyId: number) {
+    return this.http.delete(`${environment.apiHost}/${ApiPaths.Profile}/favorites/${propertyId}`);
+  }
+
+  getProfileImage(): Observable<Blob> {
+    return this.http.get(`${environment.apiHost}/${ApiPaths.Profile}/profile-image`,
+      {responseType: 'blob'});
+  }
+
+  updateProfileImage(image: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('image', image);
+    return this.http.post(`${environment.apiHost}/${ApiPaths.Profile}/profile-image`, formData);
+  }
+
+  getAccount(id: number): Observable<Account> {
+    return this.http.get<Account>(`${environment.apiHost}/${ApiPaths.Profile}/${id}`);
+  }
+
+  toggleNotificationsEnabled(type: NotificationType) {
+    return this.http.put<Account>(`${environment.apiHost}/${ApiPaths.Profile}/notifications`, {type});
   }
 }

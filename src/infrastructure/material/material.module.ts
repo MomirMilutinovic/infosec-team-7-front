@@ -5,7 +5,7 @@ import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatRadioModule } from "@angular/material/radio";
-import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatCalendar, MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatIconModule} from "@angular/material/icon";
 import {ReactiveFormsModule} from "@angular/forms";
@@ -14,10 +14,23 @@ import {MatCardModule} from "@angular/material/card";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {FormsModule} from "@angular/forms";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import { InlineRangeCalendarComponent } from './inline-range-calendar/inline-range-calendar.component';
+import {MatTableModule} from '@angular/material/table';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
+import {MatStepperModule} from '@angular/material/stepper';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatBadgeModule } from '@angular/material/badge';
+import {MatListModule} from "@angular/material/list";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    InlineRangeCalendarComponent
+  ],
   imports: [
+    BrowserAnimationsModule,
     CommonModule,
     MatDialogModule,
     MatInputModule,
@@ -34,7 +47,16 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     MatGridListModule,
     MatSidenavModule,
     FormsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    MatTableModule,
+    MatSnackBarModule,
+    MatSelectModule,
+    MatStepperModule,
+    NgbModule,
+    MatBadgeModule,
+    MatListModule
   ],
   exports: [
     MatDialogModule,
@@ -54,7 +76,17 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     MatGridListModule,
     MatSidenavModule,
     FormsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    InlineRangeCalendarComponent,
+    MatTableModule,
+    MatSnackBarModule,
+    MatSelectModule,
+    MatStepperModule,
+    NgbModule,
+    MatBadgeModule,
+    MatListModule,
   ]
 })
 

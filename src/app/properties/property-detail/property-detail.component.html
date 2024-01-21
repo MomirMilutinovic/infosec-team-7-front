@@ -1,31 +1,42 @@
 <div class="detail-container">
   <mat-grid-list fxFill cols="4" rowHeight="1.5:1" gutterSize="1em">
     <mat-grid-tile colspan="2" rowspan="2">
-      <img [src]="property?.photoUrls?.at(0) ?? placeholderImage" alt="Photo of a property." />
+      <img [src]="images.at(0) ?? placeholderImage" alt="Photo of a property."/>
     </mat-grid-tile>
     <mat-grid-tile *ngFor="let urlOrder of [1, 2, 3, 4]">
-      <img [src]="environment.assetsDir + '/images/common' + urlOrder + '.png'" alt="Photo of a property." />
+      <img [src]="images.at(urlOrder) ?? placeholderImage" alt="Photo of a property."/>
     </mat-grid-tile>
   </mat-grid-list>
 
   <div class="detail-text" fxFill fxLayout="row" fxLayoutAlign="space-between start">
     <div fxLayout="column" fxLayoutAlign="start start">
       <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="20px">
-        <h1 >{{property?.name}}</h1>
-        <div fxLayout="row" fxLayoutAlign="center center" class="rating">
-          <mat-icon>star</mat-icon><span>{{property?.averageRating?.toPrecision(2)}}</span>
+        <h1>{{ property?.name }}</h1>
+        <div fxLayout="row" fxLayoutAlign="center center" class="rating" *ngIf="averageRating">
+          <mat-icon>star</mat-icon>
+          <span>{{ averageRating.toPrecision(2) }}</span>
         </div>
       </div>
-      <h3>{{property?.location?.city}}, {{property?.location?.country}}</h3>
-      <p>{{property?.description}}</p>
+      <h3>{{ property?.address?.city }}, {{ property?.address?.country }}</h3>
+      <div class="host" *ngIf="property && property.host && property.host.id">
+        <a [routerLink]="'/host/' + property.host.id">
+          <app-profile-image [id]="property.host.id"></app-profile-image>
+        </a>
+        <span class="host-name">Hosted by {{property.host.name}} {{property.host.surname}}</span>
+      </div>
+      <p>Minimum guests: {{ property?.minGuests }}</p>
+      <p>Maximum guests: {{ property?.maxGuests }}</p>
+      <p>{{ property?.description }}</p>
     </div>
 
-    <form fxLayout="column" fxLayoutAlign="start stretch">
+    <form fxLayout="column" fxLayoutAlign="start stretch" *ngIf="this.getRole() === 'GUEST'"
+          [formGroup]="this.reservationFormGroup" (ngSubmit)="createReservation()">
       <mat-form-field appearance="outline">
         <mat-label>Date range</mat-label>
-        <mat-date-range-input [rangePicker]="picker">
-          <input matStartDate placeholder="Start date">
-          <input matEndDate placeholder="End date">
+        <mat-date-range-input [rangePicker]="picker" [dateFilter]="this.dateFilter">
+          <input formControlName="startDate" matStartDate placeholder="Start date">
+          <input formControlName="endDate" matEndDate placeholder="End date"
+                 (dateChange)="calculatePrice()">
         </mat-date-range-input>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>
@@ -33,14 +44,19 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Number of guests</mat-label>
-        <input matInput/>
+        <input formControlName="numberOfGuests" type="number" matInput/>
         <mat-icon matSuffix>group</mat-icon>
       </mat-form-field>
 
       <div fxLayout="row" fxLayoutAlign="space-between center">
-        <span>Total price: ${{property?.pricePerNight}}</span>
-        <button mat-raised-button color="primary">Book</button>
+        <span>Total price: ${{ price }}</span>
+        <button mat-raised-button color="primary" type="submit">Book</button>
       </div>
     </form>
   </div>
+  <app-location *ngIf="property"
+    [latitude]="property.latitude"
+    [longitude]="property.longitude"
+  ></app-location>
+  <app-reviews [id]="property.id" [reportingAllowed]="reportingAllowed" *ngIf="property" (reviewDeleted)="calculateAverageRating()"></app-reviews>
 </div>

@@ -9,6 +9,20 @@ import { CoreModule } from '../core/core.module';
 import { SearchComponent } from './search/search.component';
 import { AsyncPipe } from "@angular/common";
 import { SearchPageComponent } from './search-page/search-page.component';
+import { PropertyNewComponent } from './property-new/property-new.component';
+import { PropertyManagementModule } from './property-management/property-management.module';
+import { FilterDialogComponent } from './filter-dialog/filter-dialog.component';
+import { PropertyPriceAndAvailabilityEditComponent } from './property-price-and-availability-edit/property-price-and-availability-edit.component';
+import { PropertyApprovalComponent } from './property-approval/property-approval.component';
+import { MyPropertiesComponent } from './my-properties/my-properties.component';
+import { PropertyEditComponent } from './property-edit/property-edit.component';
+import { PropertyCreatedDialogComponent } from './property-created-dialog/property-created-dialog.component';
+import { PropertyUpdatedDialogComponent } from './property-updated-dialog/property-updated-dialog.component';
+import { FavoriteActionComponent } from './favorite-action/favorite-action.component';
+import { FavoritesComponent } from './favorites/favorites.component';
+import { ReviewsComponent } from '../reviews/reviews/reviews.component';
+import { ReviewsModule } from '../reviews/reviews.module';
+import { AccountModule } from '../account/account.module';
 
 
 @NgModule({
@@ -16,19 +30,37 @@ import { SearchPageComponent } from './search-page/search-page.component';
     PropertiesComponent,
     PropertyDetailComponent,
     SearchComponent,
-    SearchPageComponent
+    SearchPageComponent,
+    PropertyNewComponent,
+    FilterDialogComponent,
+    PropertyPriceAndAvailabilityEditComponent,
+    PropertyApprovalComponent,
+    MyPropertiesComponent,
+    PropertyEditComponent,
+    PropertyCreatedDialogComponent,
+    PropertyUpdatedDialogComponent,
+    FavoriteActionComponent,
+    FavoritesComponent,
   ],
-    exports: [
-        SearchComponent,
-        PropertiesComponent
-    ],
   imports: [
     SharedModule,
     PropertiesRoutingModule,
     FlexLayoutModule,
     MaterialModule,
+    PropertyManagementModule,
     CoreModule,
-    AsyncPipe
+    AsyncPipe,
+    ReviewsModule,
+    AccountModule
+  ],
+  exports: [
+    SearchComponent,
+    PropertiesComponent,
+    PropertyNewComponent,
+    PropertyApprovalComponent,
+    MyPropertiesComponent,
+    PropertyEditComponent,
+    PropertyUpdatedDialogComponent,
   ]
 })
 export class PropertiesModule {
