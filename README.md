@@ -1,3 +1,5 @@
+![image](https://github.com/tinylunark/lunark-front/assets/42711489/a6912e8f-8243-40ec-8587-193edbea391d)
+
 <img src="https://github.com/tinylunark/lunark-front/raw/doc/readme/MainPageScreenshot.png"/>
 
 # Lunark
