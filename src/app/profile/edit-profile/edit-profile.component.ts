@@ -52,7 +52,7 @@ export class EditProfileComponent implements OnInit {
 
   onRequestCertificateClick() : void {
     if (this.profile) {
-      this.profileService.requestCertificate().subscribe({
+      this.profileService.requestCertificate(this.profile).subscribe({
         next: (_) => {
           this.sharedService.openSnack('Request sent');
         }
