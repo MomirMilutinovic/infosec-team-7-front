@@ -58,6 +58,11 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "ssl": true,
+            "sslCert": "https_cert.crt",
+            "sslKey": "https_keypair.pem"
+          },
           "configurations": {
             "production": {
               "buildTarget": "lunark-front:build:production"
