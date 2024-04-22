@@ -50,6 +50,19 @@ export class EditProfileComponent implements OnInit {
     }
   }
 
+  onRequestCertificateClick() : void {
+    if (this.profile) {
+      this.profileService.requestCertificate(this.profile).subscribe({
+        next: (_) => {
+          this.sharedService.openSnack('Request sent');
+        }
+      }
+      );
+    }
+    else {
+      console.error('Profile not found');
+    }
+  }
 
   onProfileChange(updatedProfile: Profile | null): void {
     this.profile = updatedProfile;

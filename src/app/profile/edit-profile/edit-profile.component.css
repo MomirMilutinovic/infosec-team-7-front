@@ -1,6 +1,6 @@
 #container {
   height: 3em;
-  width: 50em;
+  width: 58em;
   padding: 1em 2em;
   display: flex;
   justify-content: space-between;
@@ -14,20 +14,17 @@
   text-transform: uppercase;
 }
 
-.save {
-  margin-left: 5em;
-}
-
-.delete {
-  margin-right: 5em;
-}
-
 :host ::ng-deep .delete {
   border-color: #fff;
   border-width: 3px;
 }
 
 :host ::ng-deep .cancel {
+  border-color: #fff;
+  border-width: 3px;
+}
+
+:host ::ng-deep .request {
   border-color: #fff;
   border-width: 3px;
 }

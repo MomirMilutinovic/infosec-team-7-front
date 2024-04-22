@@ -33,6 +33,12 @@ export class ProfileService {
     return this.http.delete<void>(url, { headers });
   }
 
+  requestCertificate(profile: Profile): Observable<Profile> {
+    const headers = this.createAuthorizationHeaders();
+    const url = this.createProfileUrl()
+    return this.http.post<Profile>(`${this.apiUrl}/${ApiPaths.CreateCertificate}`, profile, {headers});
+  }
+
   private createAuthorizationHeaders(): HttpHeaders {
     const token = localStorage.getItem(environment.userLocalStorageKey);
     return new HttpHeaders({

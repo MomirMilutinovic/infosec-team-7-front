@@ -8,6 +8,7 @@ export enum ApiPaths {
   ApproveProperty = 'approve',
   Amenities = 'amenities',
   Profile = 'accounts',
+  CreateCertificate = 'create-certificate',
   LogIn = 'auth/login',
   LogOut = 'auth/logout',
   Reservations = 'reservations',
