@@ -39,19 +39,10 @@ export class NavBarComponent implements OnInit {
   }
 
   onLogoutClick() {
-    this.accountService.logout().subscribe({
-      next: () => {
-        localStorage.removeItem(environment.userLocalStorageKey);
-        this.accountService.setUser();
-      }
-    });
+    this.accountService.logout();
   }
 
   openLoginDialog() {
-    // Open login dialog
-    const dialogRef = this.dialog.open(LoginDialog,{
-      width: "40%",
-      backdropClass: "backdropBackground"
-    });
+    this.accountService.startLogin();
   }
 }

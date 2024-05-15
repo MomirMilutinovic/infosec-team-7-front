@@ -22,6 +22,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HostModule } from './host/host.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { NgChartsModule } from 'ng2-charts';
+import { OAuthModule } from 'angular-oauth2-oidc';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { NgChartsModule } from 'ng2-charts';
     SharedModule,
     NgbModule,
     NgChartsModule,
+    OAuthModule.forRoot()
   ],
   providers: [
     importProvidersFrom(HttpClientModule),

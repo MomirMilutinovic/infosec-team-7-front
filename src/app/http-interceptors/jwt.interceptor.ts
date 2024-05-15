@@ -7,14 +7,18 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../env/environment';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 @Injectable()
 export class JWTInterceptor implements HttpInterceptor {
+  constructor (private oauthService: OAuthService) {
+
+  }
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const accessToken: string = localStorage.getItem(environment.userLocalStorageKey) || '';
+    const accessToken: string = this.oauthService.getAccessToken() || '';
     if (req.headers.get('skip')) return next.handle(req);
 
     if (accessToken) {
