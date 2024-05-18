@@ -34,7 +34,7 @@ export class AccountService {
     this.user$.next(this.getRole());
   }
 
-  getToken(): string {
+  private getToken(): string {
     return this.oauthService.getAccessToken();
   }
 
