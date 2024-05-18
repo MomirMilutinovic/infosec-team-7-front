@@ -6,6 +6,7 @@ import { environment } from '../../env/environment';
 import { Notification, UnreadNotificationCount } from '../shared/models/notification.model';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class NotificationService {
   });
   newNotificationState = this.newNotification$.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private oauthService: OAuthService) {}
 
   getNotifications(): Observable<Notification[]> {
     return this.http.get<Notification[]>(environment.apiHost + '/notifications').pipe(
@@ -35,7 +36,7 @@ export class NotificationService {
     this.stompClient = Stomp.over(ws);
     let that = this;
 
-    this.stompClient.connect({Authorization: `Bearer ${localStorage.getItem(environment.userLocalStorageKey)}`}, function () {
+    this.stompClient.connect({Authorization: `Bearer ${this.oauthService.getAccessToken()}`}, function () {
       that.isLoaded = true;
       that.openSocket()
     });
