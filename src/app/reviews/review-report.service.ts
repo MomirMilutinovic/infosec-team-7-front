@@ -23,7 +23,7 @@ export class ReviewReportService {
   }
 
   createReviewReport(reviewId: number): Observable<ReviewReport> {
-    let reporterId: number | null = this.accountService.getAccountId(); 
+    let reporterId: string | null = this.accountService.getAccountId(); 
     if (reporterId == null) throw new Error("User is not logged in!");
     return this.http.post<ReviewReport>(this.baseUrl, {
       //date-time without timezone component

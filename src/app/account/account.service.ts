@@ -64,7 +64,7 @@ export class AccountService {
     return notLoggedInRole;
   }
 
-  getAccountId(): number | null {
+  getAccountId(): string | null {
     if (this.isLoggedIn()) {
       const accessToken: any = this.oauthService.getAccessToken();
       const helper = new JwtHelperService();
@@ -129,7 +129,7 @@ export class AccountService {
     return this.http.post(`${environment.apiHost}/${ApiPaths.Profile}/profile-image`, formData);
   }
 
-  getAccount(id: number): Observable<Account> {
+  getAccount(id: string): Observable<Account> {
     return this.http.get<Account>(`${environment.apiHost}/${ApiPaths.Profile}/${id}`);
   }
 

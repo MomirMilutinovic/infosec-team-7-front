@@ -124,4 +124,8 @@ export class PropertyDetailComponent {
       }
     );
   }
+
+  castToString(num: number): string {
+    return String(num);
+  }
 }

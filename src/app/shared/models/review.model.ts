@@ -2,7 +2,7 @@ export interface Review {
     rating: number;
     description: string;
     date: Date;
-    authorId?: number;
+    authorId?: string;
     author: string;
     type: ReviewType,
     id?: number;

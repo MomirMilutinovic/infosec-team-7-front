@@ -2,7 +2,7 @@ import GuestNotificationSettings from "../../shared/models/guest-notification-se
 import HostNotificationSettings from "../../shared/models/host-notification-settings.model";
 
 export interface Account {
-    id?: number,
+    id?: string,
     email: string,
     password: string,
     name: string,

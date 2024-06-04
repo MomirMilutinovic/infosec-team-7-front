@@ -13,13 +13,13 @@ export class HostReviewService extends ReviewService {
     super(http);
   }
 
-  override add(review: Review, hostId: number): Observable<Review> {
+  override add(review: Review, hostId: string): Observable<Review> {
     return this.http.post<Review>(`${environment.apiHost}/${ApiPaths.Reviews}/host/${hostId}`, review);
   }
-  override getReviews(hostId: number): Observable<Review[]> {
+  override getReviews(hostId: string): Observable<Review[]> {
     return this.http.get<Review[]>(`${environment.apiHost}/${ApiPaths.Reviews}/host/${hostId}`);
   }
-  override eligibleToReview(hostId: number): Observable<boolean> {
+  override eligibleToReview(hostId: string): Observable<boolean> {
     return this.http.get<HostReviewEligibility>(`${environment.apiHost}/${ApiPaths.Reviews}/host-review-eligibility/${hostId}`)
     .pipe(map((eligibility: HostReviewEligibility) => eligibility.eligible));
   }

@@ -11,7 +11,7 @@ export class SessionExpiredComponent implements OnInit {
   constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
-    this.accountService.logout();
+    //this.accountService.logout();
     this.accountService.setUser();
   }
 }

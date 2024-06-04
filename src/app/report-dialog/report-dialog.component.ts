@@ -13,13 +13,13 @@ export class ReportDialogComponent {
   reportForm: FormGroup = new FormGroup({
     reason: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z0-9 \.!\?\'\"]+')]),
   });
-  reportedUserId: number | null = null;
+  reportedUserId: string | null = null;
   title: string = "Report host";
 
   constructor(
     private accountReportService: AccountReportService,
     private dialogRef: MatDialogRef<ReportDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) protected data: { reportedUserId: number, title: string },
+    @Inject(MAT_DIALOG_DATA) protected data: { reportedUserId: string, title: string },
     private sharedService: SharedService
   ) {
     this.reportedUserId = data.reportedUserId;

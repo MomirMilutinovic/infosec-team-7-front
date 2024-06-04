@@ -1,4 +1,4 @@
 export interface HostReportEligibility {
-    hostId: number;
+    hostId: string;
     eligible: boolean;
 }
