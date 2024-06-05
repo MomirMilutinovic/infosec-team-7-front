@@ -68,7 +68,7 @@ export class AccountService {
     if (this.isLoggedIn()) {
       const accessToken: any = this.oauthService.getAccessToken();
       const helper = new JwtHelperService();
-      return helper.decodeToken(accessToken).profileId;
+      return helper.decodeToken(accessToken).ldap_id;
     }
     return null;
   }
