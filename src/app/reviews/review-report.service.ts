@@ -10,7 +10,7 @@ import { AccountService } from '../account/account.service';
   providedIn: 'root'
 })
 export class ReviewReportService {
-  private baseUrl = 'http://localhost:8080/api/reports/reviews';
+  private baseUrl = `${environment.apiHost}/${ApiPaths.CommentsGrades}`;
 
   constructor(private http: HttpClient, private accountService: AccountService) { }
 
