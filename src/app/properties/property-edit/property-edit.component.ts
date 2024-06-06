@@ -44,7 +44,7 @@ export class PropertyEditComponent implements OnInit {
     minGuests: 0,
     maxGuests: 0,
     amenityIds: [],
-    hostId: 0,
+    hostId: '',
   };
 
   constructor(
@@ -79,7 +79,7 @@ export class PropertyEditComponent implements OnInit {
         minGuests: property.minGuests,
         maxGuests: property.maxGuests,
         amenityIds: property.amenities.map((amenity) => amenity.id),
-        hostId: property.host?.id || 0,
+        hostId: property.host?.id || "",
       };
       this.propertyNameControl.setValue(this.property.name);
     });

@@ -1,5 +1,5 @@
 export interface AccountReportDto {
-    reportedId: number;
+    reportedId: string;
     date: string;
     reason: string;
 }

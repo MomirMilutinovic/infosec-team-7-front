@@ -10,6 +10,8 @@ import PasswordUpdate from "../shared/models/password-update.model";
 import {Property} from "../shared/models/property.model";
 import { NotificationService } from '../notifications/notification.service';
 import NotificationType from "../shared/models/notification-type.enum";
+import { OAuthService } from 'angular-oauth2-oidc';
+import { authConfig } from '../app.config';
 
 const notLoggedInRole = "unregistered";
 
@@ -26,8 +28,14 @@ export class AccountService {
   user$ = new BehaviorSubject(notLoggedInRole);
   userState = this.user$.asObservable();
 
-  constructor(private http: HttpClient, private notificationService: NotificationService) {
+  constructor(private http: HttpClient, private notificationService: NotificationService, private oauthService: OAuthService) {
+    this.oauthService.configure(authConfig);
+    this.oauthService.loadDiscoveryDocumentAndTryLogin();
     this.user$.next(this.getRole());
+  }
+
+  private getToken(): string {
+    return this.oauthService.getAccessToken();
   }
 
   login(auth: any): Observable<AuthResponse> {
@@ -42,38 +50,32 @@ export class AccountService {
     );
   }
 
-  logout(): Observable<string> {
-    return this.http.get(`${environment.apiHost}/${ApiPaths.LogOut}`, {
-      responseType: 'text',
-    }).pipe(
-      tap(() => {
-        this.notificationService.closeSocket();
-      })
-    );
+  logout(): void {
+    this.oauthService.logOut();
   }
 
   getRole(): any {
     if (this.isLoggedIn()) {
-      const accessToken: any = localStorage.getItem(environment.userLocalStorageKey);
+      const accessToken: any = this.getToken();
       const helper = new JwtHelperService();
-      return helper.decodeToken(accessToken).role[0].authority;
+      const roles: string[] = helper.decodeToken(accessToken).realm_access.roles;
+      return roles.filter(e => ["ADMIN", "HOST", "GUEST"].includes(e))[0];
     }
     return notLoggedInRole;
   }
 
-  getAccountId(): number | null {
+  getAccountId(): string | null {
     if (this.isLoggedIn()) {
-      const accessToken: any = localStorage.getItem(environment.userLocalStorageKey);
+      const accessToken: any = this.oauthService.getAccessToken();
       const helper = new JwtHelperService();
-      return helper.decodeToken(accessToken).profileId;
+      return helper.decodeToken(accessToken).ldap_id;
     }
     return null;
   }
 
   isLoggedIn(): boolean {
-    const accessToken: any = localStorage.getItem(environment.userLocalStorageKey);
+    const accessToken: any = this.getToken();
     if(accessToken == null || this.isTokenExpired(accessToken)) {
-      localStorage.removeItem(environment.userLocalStorageKey);
       this.user$.next(notLoggedInRole);
       return false;
     }
@@ -127,11 +129,15 @@ export class AccountService {
     return this.http.post(`${environment.apiHost}/${ApiPaths.Profile}/profile-image`, formData);
   }
 
-  getAccount(id: number): Observable<Account> {
+  getAccount(id: string): Observable<Account> {
     return this.http.get<Account>(`${environment.apiHost}/${ApiPaths.Profile}/${id}`);
   }
 
   toggleNotificationsEnabled(type: NotificationType) {
     return this.http.put<Account>(`${environment.apiHost}/${ApiPaths.Profile}/notifications`, {type});
+  }
+
+  startLogin(): void {
+    this.oauthService.initCodeFlow();
   }
 }

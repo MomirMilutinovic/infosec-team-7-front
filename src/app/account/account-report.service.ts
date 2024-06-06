@@ -21,11 +21,11 @@ export class AccountReportService {
   getAllAccountReports(): Observable<AccountReport[]> {
     return this.http.get<AccountReport[]>(`${environment.apiHost}/${ApiPaths.ReportedAccounts}`);
   }
-  blockAccount(id: number): Observable<void> {
-    return this.http.delete<void>(`${environment.apiHost}/${ApiPaths.ReportedAccounts}/${id}`);
+  blockAccount(report_id: number): Observable<void> {
+    return this.http.delete<void>(`${environment.apiHost}/${ApiPaths.ReportedAccounts}/${report_id}`);
   }
 
-  reportAccount(id: number, reason: string): Observable<AccountReport> {
+  reportAccount(id: string, reason: string): Observable<AccountReport> {
     let report: AccountReportDto = {
       reportedId: id,
       date: new Date().toISOString().slice(0, 19),
@@ -34,7 +34,7 @@ export class AccountReportService {
     return this.http.post<AccountReport>(`${environment.apiHost}/${ApiPaths.ReportedAccounts}`, report);
   }
 
-  isEligibleToReportHost(id: number): Observable<boolean> {
+  isEligibleToReportHost(id: string): Observable<boolean> {
     if (this.accountService.getRole() != "GUEST") {
       return new Observable((observer) => {
         observer.next(false);

@@ -14,16 +14,16 @@ export class PropertyReviewService extends ReviewService {
     super(http);
    }
 
-  eligibleToReview(propertyId: number): Observable<boolean> {
+  eligibleToReview(propertyId: string): Observable<boolean> {
       return this.http.get<PropertyReviewEligibility>(`${environment.apiHost}/${ApiPaths.Reviews}/property-review-eligibility/${propertyId}`)
       .pipe(map((eligibility: PropertyReviewEligibility) => eligibility.eligible));
   }
 
-  add(review: Review, propertyId: number): Observable<Review> {
+  add(review: Review, propertyId: string): Observable<Review> {
     return this.http.post<Review>(`${environment.apiHost}/${ApiPaths.Reviews}/property/${propertyId}`, review);
   }
 
-  getReviews(hostId: number): Observable<Review[]> {
-    return this.http.get<Review[]>(`${environment.apiHost}/${ApiPaths.Reviews}/property/${hostId}`);
+  getReviews(propertyId: string): Observable<Review[]> {
+    return this.http.get<Review[]>(`${environment.apiHost}/${ApiPaths.Reviews}/property/${propertyId}`);
   }
 }

@@ -10,7 +10,7 @@ import { AccountService } from '../account/account.service';
   providedIn: 'root'
 })
 export class ReviewReportService {
-  private baseUrl = 'http://localhost:8080/api/reports/reviews';
+  private baseUrl = `${environment.apiHost}/${ApiPaths.CommentsGrades}`;
 
   constructor(private http: HttpClient, private accountService: AccountService) { }
 
@@ -23,7 +23,7 @@ export class ReviewReportService {
   }
 
   createReviewReport(reviewId: number): Observable<ReviewReport> {
-    let reporterId: number | null = this.accountService.getAccountId(); 
+    let reporterId: string | null = this.accountService.getAccountId(); 
     if (reporterId == null) throw new Error("User is not logged in!");
     return this.http.post<ReviewReport>(this.baseUrl, {
       //date-time without timezone component

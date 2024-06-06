@@ -8,7 +8,7 @@ import { environment } from '../../../env/environment';
   styleUrl: './profile-image.component.css'
 })
 export class ProfileImageComponent implements OnInit {
-  @Input() id: number;
+  @Input() id: string;
   profileImageURL?: string;
 
   ngOnInit(): void {

@@ -116,7 +116,7 @@ export class HostIncomingReservationsComponent {
     reservations.forEach(reservation => this.getImages(reservation.property.id));
   }
 
-  report(guestId: number) {
+  report(guestId: string) {
     this.matDialog.open(ReportDialogComponent, {
       backdropClass: "backdropBackground",
       data: {

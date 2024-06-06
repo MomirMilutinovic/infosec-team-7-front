@@ -10,7 +10,7 @@
     </button>
   </div>
   <div class="reviews">
-    <app-reviews [id]="id || 0" [reportingAllowed]="reportingAllowed" *ngIf="reviews != null"
+    <app-reviews [id]="id || ''" [reportingAllowed]="reportingAllowed" *ngIf="reviews != null"
                  (reviewDeleted)="getAccount()"></app-reviews>
   </div>
 </app-container>

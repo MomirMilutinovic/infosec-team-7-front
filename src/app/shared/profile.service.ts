@@ -5,6 +5,7 @@ import { Profile } from './models/profile.model';
 import { ApiPaths } from './api/api-paths.enum';
 import { environment } from '../../env/environment';
 import { jwtDecode } from 'jwt-decode';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,7 @@ export class ProfileService {
   private apiUrl = `${environment.apiHost}/${ApiPaths.Profile}`;
   private profile: Profile | null = null;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private oauthService: OAuthService) {}
 
   getProfile(): Observable<Profile> {
     const headers = this.createAuthorizationHeaders();
@@ -40,14 +41,14 @@ export class ProfileService {
   }
 
   private createAuthorizationHeaders(): HttpHeaders {
-    const token = localStorage.getItem(environment.userLocalStorageKey);
+    const token = this.oauthService.getAccessToken();
     return new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`,
     });
   }
 
-  getProfileById(profileId: number): Observable<Profile> {
+  getProfileById(profileId: string): Observable<Profile> {
     const headers = this.createAuthorizationHeaders();
     const url = `${this.apiUrl}/${profileId}`;
     return this.http.get<Profile>(url, { headers });
@@ -59,9 +60,9 @@ export class ProfileService {
   }
 
   private extractProfileIdFromToken(): number {
-    const token: any = localStorage.getItem(environment.userLocalStorageKey);
+    const token: any = this.oauthService.getAccessToken();
     const decodedToken: any = jwtDecode(token);
-    return decodedToken.profileId;
+    return decodedToken.ldap_id;
   }
 
   logout(): void {

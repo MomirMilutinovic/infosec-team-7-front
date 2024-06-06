@@ -1,5 +1,5 @@
 export interface HostReviewEligibility {
     eligible: boolean;
-    hostId: number;
-    guestId: number;
+    hostId: string;
+    guestId: string;
 }

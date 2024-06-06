@@ -2,7 +2,7 @@ import GuestNotificationSettings from "./guest-notification-settings.model";
 import HostNotificationSettings from "./host-notification-settings.model";
 
 export interface Profile {
-  id?: number;
+  id?: string;
   email?: string;
   name?: string;
   surname?: string;

@@ -1,8 +1,8 @@
 export class AccountReport {
   id: number;
   date: Date;
-  reporterId: number;
-  reportedId: number;
+  reporterId: string;
+  reportedId: string;
   reason: string;
 }
 

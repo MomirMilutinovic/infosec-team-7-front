@@ -16,7 +16,7 @@ import {ReportDialogComponent} from "../../report-dialog/report-dialog.component
 })
 export class HostPageComponent implements OnInit {
   reviews: Review[] | null = null;
-  id: number | null = null;
+  id: string | null = null;
   header: string = "";
   reportingAllowed = false;
   averageRating: number;
@@ -27,14 +27,14 @@ export class HostPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      this.id = Number(params.get('id'));
+      this.id = params.get('id');
       if (this.id === null) {
         return;
       }
 
       this.reportingAllowed = this.accountService.getAccountId() === this.id;
 
-      this.reviewService.getReviews(+this.id).subscribe(reviews => {
+      this.reviewService.getReviews(this.id).subscribe(reviews => {
         this.reviews = reviews;
       });
 

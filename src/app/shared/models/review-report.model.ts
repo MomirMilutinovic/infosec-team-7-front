@@ -1,7 +1,7 @@
 export class ReviewReport {
   id: number;
   date: Date;
-  reporterId: number;
+  reporterId: string;
   reviewId: number;
 }
 

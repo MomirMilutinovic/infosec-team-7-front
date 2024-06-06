@@ -26,7 +26,7 @@ export interface Property {
   minGuests: number;
   amenities: Amenity[];
   maxGuests: number;
-  hostId: number;
+  hostId: string;
   reviews?: Review[];
   host?: Account;
 }

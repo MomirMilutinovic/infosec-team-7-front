@@ -8,7 +8,7 @@ export abstract class ReviewService {
 
   constructor(protected http: HttpClient) { }
 
-  abstract add(review: Review, reviewableEntityId: number): Observable<Review>;
+  abstract add(review: Review, reviewableEntityId: string): Observable<Review>;
 
   getUnapprovedReviews() : Observable<Review[]> {
     return this.http.get<Review[]>(`${environment.apiHost}/${ApiPaths.Reviews}/${ApiPaths.UnapprovedReviews}`);
@@ -18,9 +18,9 @@ export abstract class ReviewService {
     return this.http.post<Review>(`${environment.apiHost}/${ApiPaths.Reviews}/property/${propertyId}`, review);
   }
 
-  abstract getReviews(reviewableEntityId: number): Observable<Review[]>;
+  abstract getReviews(reviewableEntityId: string): Observable<Review[]>;
 
-  abstract eligibleToReview(reviewableEntityId: number): Observable<boolean>;
+  abstract eligibleToReview(reviewableEntityId: string): Observable<boolean>;
 
 
   approveReview(review: Review): Observable<Review> {
