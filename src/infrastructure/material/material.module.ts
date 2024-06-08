@@ -30,7 +30,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     InlineRangeCalendarComponent
   ],
   imports: [
-    BrowserAnimationsModule,
     CommonModule,
     MatDialogModule,
     MatInputModule,
